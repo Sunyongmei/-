@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+
+    //向构造函数的原型上绑定属性和方法的方式有两种：
+
+
+    function Student(){
+        this.finger2 = "十一根手指";
+    }
+
+    //第一种:
+        //绑定公共属性和方法
+//    Student.prototype.finger1 = "十根手指";
+//    Student.prototype.eye1 = "眼镜";
+//    Student.prototype.eat1 = function () {
+//        console.log("吃饭");
+//    }
+//    Student.prototype.sleep1 = function () {
+//        console.log("睡觉");
+//    }
+
+
+    //第二种：既然构造函数原型是一个对象，那么我们就可以用另外一个对象把他层叠掉;
+            //整个对象覆盖要注意设置：constructor;
+    Student.prototype = {
+        constructor: Student,//函数名就代表整个函数
+        finger2: "十根手指",
+        eye2: "眼镜",
+        eat2: function () {
+            console.log("吃饭");
+        },
+        sleep2: function () {
+            console.log("睡觉");
+        }
+    };
+
+
+    var stu1 = new Student();
+    console.log(stu1);
+    console.log(stu1.finger2);//如果对象实例有这个属性或者方法，不会去原型中寻找；
+
+</script>
+</body>
+</html>

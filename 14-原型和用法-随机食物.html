@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>贪吃蛇一部分</title>
+    <style>
+        #map {
+            width: 800px;
+            height: 600px;
+            position: relative;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="map"></div>
+
+    <script>
+
+        //需要一个食物对象;
+        function Food(width,height,top,left,background){//1.宽高;   2.位置;   3.颜色;
+            this.width = width || 20;
+            this.height = height || 20;
+            this.top = top || 0;
+            this.left = left || 0;
+            this.background = background || "green";
+        }
+
+
+        //所有的对象都应该共享一个初始化方法;
+            //创建div，设置宽高位置背景-定位添加到map；
+        Food.prototype.init = function (map) {
+            //1.创建div
+            var newDiv = document.createElement("div");
+            //2.设置宽高位置背景
+            newDiv.style.width = this.width+"px";//带单位;
+            newDiv.style.height = this.height+"px";//带单位;
+            newDiv.style.background = this.background;//带单位;
+            //随机位置
+            this.top = parseInt(Math.random()*(map.offsetHeight-this.height));
+            this.left = parseInt(Math.random()*(map.offsetWidth-this.width));
+            newDiv.style.top = this.top+"px";
+            newDiv.style.left = this.left+"px";
+            //3.定位添加到map；
+            newDiv.style.position = "absolute";
+            map.appendChild(newDiv);
+        }
+
+
+
+        //创建对象，调用init方法;(需要地图做参数)
+        var food = new Food();
+        //获取map，做参数调用init();
+        var map = document.getElementById("map");
+        food.init(map);
+
+
+    </script>
+
+
+
+</body>
+</html>

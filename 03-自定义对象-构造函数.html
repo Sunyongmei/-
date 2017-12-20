@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+
+    //构造创建自定义对象
+
+    //构造函数使用new调用，都字母大写
+    function Student(name,age){
+        //a.创建对象(new帮我们创建)
+//        var stu = new Object();
+        //b.绑定属性和方法(new帮我们把对象指向this)
+        this.name = name;
+        this.age = age;
+        this.sayHi = function () {
+            console.log(this.name+":大家好...");
+        }
+        //c.返回对象(new帮我们返回)
+//        return stu;
+    }
+
+
+    var stu1 = new Student("李四",20);
+    console.log(stu1);
+
+
+
+
+
+</script>
+</body>
+</html>

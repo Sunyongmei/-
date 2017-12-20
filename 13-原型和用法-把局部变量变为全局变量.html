@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+    <script>
+
+        //把局部变量变为全局变量！
+//        fn();
+//        console.log(aaa);
+//
+//        function fn(){
+//            var aaa = 111;
+//            //把aaa变为全局变量！
+//            window.aaa = aaa;
+//        }
+
+
+        //利用匿名函数，把局部变量设置为全局变量(可以减少全局变量污染)
+        (function (){
+//            var aaa = 111;
+//            var bbb = 222;
+//            var ccc = 333;
+//            function fn(a,b){
+//                return a*b;
+//            }
+//            var sum = aaa+bbb+ccc+fn(111,4)
+//            //把最想要设置为全局的局部变量暴露给全局；
+//            window.sum = sum;
+
+            //把对象暴露给全局
+            function Stu(){
+
+            }
+            Stu.prototype.sleep = function () {
+                console.log("睡觉！");
+                attack();
+            }
+            //原型里面可以调用原型外面的方法;
+            function attack(){
+                alert("我让你睡，棒棒棒！！！");
+            }
+
+            window.Stu = Stu;
+        })();//函数自调用设置全局变量
+
+
+//        alert(sum);
+//        fn();//减全全局变量污染
+//        console.log(aaa);//减全全局变量污染
+
+
+        console.dir(Stu);
+        var stu1 = new Stu();
+        stu1.sleep();
+
+    </script>
+</body>
+</html>

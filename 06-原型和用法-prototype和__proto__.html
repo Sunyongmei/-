@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+
+    //创建构造函数结合原型
+
+    /**
+     *
+     * 每个构造函数中都有prototype和__proto__两个属性; prototype指向构造函数的原型，程序员喜欢使用，构造函数创建的元素都能使用这里面的属性和方法;
+     * 每个实例化对象中只有一个__proto__属性; __proto__指向构造函数的原型prototype上;(这就是为什么实例化对象可以使用构造函数原型中的方法的原因)
+     *
+     *
+     */
+
+
+
+    function Student(name,age){
+        this.name = name;
+        this.age = age;
+        //方法(中的参数，不能在构造函数中定义，在方法里面定义)
+        this.study = function (txt) {
+            console.log(txt);
+        }
+    }
+
+    //共有属性放到构造函数的原型中
+//    Student.prototype.type = "10岁以上，正常！！！";
+//    Student.prototype.haveFinger = "都有手指";
+//    Student.prototype.eat = function () {
+//        console.log(this.name+"要吃饭！");
+//    }
+//    Student.prototype.sleep = function () {
+//        console.log("要睡觉！");
+//    }
+
+
+    var stu1 = new Student("张三",18);
+    console.dir(stu1);
+    console.dir(Student);
+
+//    console.log(stu1.type);
+//    stu1.study("晚上学习！");
+//
+//    //实例化对象中的__proto__属性和构造函数的prototype属性指向同一片内存空间
+//    console.log(stu1.__proto__  === Student.prototype);//复杂数据类型比价的是地址
+
+    //指向和里面的内容
+//    console.dir(stu1.__proto__.constructor);
+//    console.dir(Student);
+//    console.dir(Student.prototype.constructor);
+
+
+</script>
+</body>
+</html>

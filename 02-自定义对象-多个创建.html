@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+
+    //多个创建自定义对象（工厂模式）
+        //利用方法，创建好了返回
+
+    //方法1：
+//    function createStudent(name,age){
+//        return {
+//            "name": name,
+//            "age" : age,
+//            "sayHi": function() {
+//                console.log(this.name+":大家好...");
+//            }
+//        };
+//    }
+
+
+
+    //方法2：
+    function createStudent(name,age){
+        //a.创建对象
+        var stu = new Object();
+        //b.绑定属性和方法
+        stu.name = name;
+        stu.age = age;
+        stu.sayHi = function () {
+            console.log(this.name+":大家好...");
+        }
+        //c.返回对象
+        return stu;
+    }
+
+
+
+    var stu1 = createStudent("李四",20);
+    console.log(stu1);
+
+
+
+
+
+</script>
+</body>
+</html>

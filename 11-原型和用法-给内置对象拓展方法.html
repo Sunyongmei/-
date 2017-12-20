@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+    <script>
+
+       //为内置对象拓展方法和自定义对象类似;   找到构造函数的原型往上添加
+
+        var arr = new Array(1,1,2,2,3,3);
+
+        //找到数组的构造函数;    去实例对象中找__proto__.constructor;
+//        arr.__proto__.constructor.prototype.quChong = function () {
+        Array.prototype.quChong = function () {
+            //简单版;    复杂版去原来的案例里面去找;
+            var newArr = [];
+            for(var i=0;i<this.length;i++){
+                //老数组中的元素，去新数组中找，如果有就不添加了，如果没有才添加
+                if(newArr.indexOf(this[i]) == -1){
+                    newArr.push(this[i]);
+                }
+            }
+            //新数组返回
+            return newArr;
+        }
+
+
+        console.log(arr);
+        console.log(arr.quChong());
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

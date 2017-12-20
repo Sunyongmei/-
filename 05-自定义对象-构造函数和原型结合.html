@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+
+    //构造函数和原型结合创建自定义对象
+
+    //公共的属性和方法重复占用多出内存空间！
+        //只要创建一个对象，就有重复的属性和方法占用内存
+    //解决办法JS为我们准备了原型！(prototype/__proto__)
+        //把所有实例化对象的公共属性和方法放入到他的构造函数的原型(prototype)中共享;
+        //所有实例化对象就多有这些属性和方法了，通过__proto__寻找到;
+
+    //构造函数使用new调用，都字母大写
+    function Student(name){
+        this.name = name;
+        //把公共部分放入原型(prototype)
+//        this.type = "大于10对的人！！！";
+//        this.sayHi = function () {
+//            console.log(this.name+":大家好...");
+//        }
+    }
+
+    console.dir(Student);
+    //构造函数原型prototype(这个属性值是一个对象)里面的方法和属性
+    //    都可以被这个构造函数创建的实例对象所使用(继承);
+    Student.prototype.type = "大于10岁的人！！！";
+    Student.prototype.sayHi = function () {
+        console.log(this.name+":大家好...");
+    }
+
+
+    //创建整个班级所有对象
+    var stu1 = new Student("学生1",20);
+    var stu2 = new Student("学生2",20);
+    var stu3 = new Student("学生3",20);
+    var stu4 = new Student("学生4",20);
+    var stu5 = new Student("学生5",20);
+    var stu6 = new Student("学生6",20);
+    var stu7 = new Student("学生7",20);
+    console.log(stu1);
+    console.log(stu2);
+    console.log(stu3);
+    console.log(stu4);
+    console.log(stu5);
+    console.log(stu6);
+    console.log(stu7);
+    stu1.sayHi();
+    stu2.sayHi();
+    stu3.sayHi();
+    stu4.sayHi();
+    stu5.sayHi();
+    stu6.sayHi();
+    stu7.sayHi();
+    console.log(stu1.type);
+    console.log(stu2.type);
+    console.log(stu3.type);
+    console.log(stu4.type);
+    console.log(stu5.type);
+    console.log(stu6.type);
+    console.log(stu7.type);
+
+
+
+    //总结：绑定到构造函数原型(prototype)上的属性和方法，实例化对象可以使用和获取;
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+
+    <script>
+
+        //1.面向过程：给每一个li设置宽高和背景
+//        var liArr = document.getElementsByTagName("li");
+//        for(var i=0;i<liArr.length;i++){
+//            liArr[i].style.width = "100px";
+//            liArr[i].style.height = "100px";
+//            liArr[i].style.margin = "10px";
+//            liArr[i].style.background = "pink";
+//        }
+
+
+
+        //2.面向对象;
+        //封装一个可以设置样式的构造函数
+        function Setstyle(width,height,margin,bg){
+            this.width = width+"px";
+            this.height = height+"px";
+            this.margin = margin+"px";
+            this.bg = bg;
+        }
+        //给对象设置样式的功能应该是共有的
+        Setstyle.prototype.init = function (ele) {
+            ele.style.width = this.width;
+            ele.style.height = this.height;
+            ele.style.margin = this.margin;
+            ele.style.background = this.bg;
+        }
+
+
+
+        var liArr = document.getElementsByTagName("li");
+        var sty1 = new Setstyle("50","50","5","skyblue");
+        var sty2 = new Setstyle("50","50","5","yellowgreen");
+
+        sty2.init(liArr[0]);
+        sty2.init(liArr[1]);
+        sty2.init(liArr[2]);
+        sty2.init(liArr[3]);
+        sty2.init(liArr[4]);
+
+
+    </script>
+</body>
+</html>

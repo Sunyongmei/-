@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+
+    //创建构造函数结合原型
+
+    /**
+     *
+     * 构造函数(Student)可以利用new实例化出来实例对象(stu1);
+     * 构造函数(Student)可以利用prototype找到原型对象(Student.prototype);
+     * 实例对象(stu1)可以利用__proto__找到原型对象(Student.prototype);
+     *
+     *
+     *
+     * //总结：1.__proto__实际开发不用，面试的时候喜欢问;
+     * //总结：2.prototype100%用于构造函数绑定属性和方法让实例对象共享;
+     *
+     */
+
+
+    function Student(name,age){
+        this.name = name;
+        this.age = age;
+        //方法(中的参数，不能在构造函数中定义，在方法里面定义)
+        this.study = function (txt) {
+            console.log(txt);
+        }
+    }
+
+
+
+</script>
+</body>
+</html>
